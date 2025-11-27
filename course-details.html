@@ -45,7 +45,6 @@
 			<a href="contact.html" class="btn">اشترك الآن</a>
 		</section>
 
-		<!-- السكربت المسؤول عن تغيير المحتوى -->
 		<script>
 			// قاعدة بيانات الكورسات
 			const coursesData = {
@@ -129,7 +128,6 @@
 				},
 			};
 
-			// 1. نجيب اسم الكورس من الرابط
 			const urlParams = new URLSearchParams(window.location.search);
 			const courseId = urlParams.get("course");
 
@@ -141,7 +139,6 @@
 				document.getElementById("course-title").innerText = data.title;
 				document.getElementById("course-desc").innerText = data.desc;
 
-				// بناء الجدول ديناميكياً
 				const tableBody = document.getElementById("course-table-body");
 				let rows = "";
 				data.schedule.forEach((item) => {
@@ -155,7 +152,6 @@
 				});
 				tableBody.innerHTML = rows;
 			} else {
-				// لو الرابط مفيش فيه كورس، نعرض الويب كافتراضي
 				document.getElementById("course-title").innerText =
 					"خطأ: لم يتم اختيار كورس";
 				document.getElementById("course-desc").innerText =

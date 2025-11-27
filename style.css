@@ -206,7 +206,7 @@ nav ul li a.active {
 	transition: 0.3s;
 }
 
-/* تأثير لما تقف بالماوس: الأيقونة تكبر وتبيض */
+/* تأثير لما تقف بالماوس */
 .card:hover .card-icon {
 	font-size: 5rem;
 	color: #fff;
@@ -287,7 +287,6 @@ nav ul li a.active {
 	background-color: rgba(255, 255, 255, 0.02);
 }
 
-/* --- الفورم (Form) --- */
 form {
 	max-width: 600px;
 	margin: 0 auto;
@@ -328,7 +327,6 @@ textarea:focus {
 	width: 100%;
 }
 
-/* --- رسالة وصناديق About --- */
 .mission-box {
 	background: rgba(255, 255, 255, 0.03);
 	padding: 20px;
