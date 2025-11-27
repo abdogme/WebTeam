@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Team | تفاصيل الكورس</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="logo">Web <span class="highlight">Team</span></div>
+			<ul>
+				<li><a href="index.html">الرئيسية</a></li>
+				<li><a href="courses.html" class="active">الكورسات</a></li>
+				<li><a href="about.html">من نحن</a></li>
+				<li><a href="contact.html">تواصل معنا</a></li>
+			</ul>
+		</nav>
+
+		<section class="container details-container">
+			<!-- العناصر دي فاضية والسكريبت هيملاها -->
+			<h2 id="course-title">جاري التحميل...</h2>
+			<p class="course-desc" id="course-desc"></p>
+
+			<h3 class="table-title">جدول المنهج الدراسي</h3>
+			<div class="table-wrapper">
+				<table class="course-table">
+					<thead>
+						<tr>
+							<th>الأسبوع</th>
+							<th>الموضوع</th>
+							<th>المشروع العملي</th>
+						</tr>
+					</thead>
+					<tbody id="course-table-body">
+						<!-- الجدول هيتملي أوتوماتيك -->
+					</tbody>
+				</table>
+			</div>
+			<br />
+			<a href="contact.html" class="btn">اشترك الآن</a>
+		</section>
+
+		<!-- السكربت المسؤول عن تغيير المحتوى -->
+		<script>
+			// قاعدة بيانات الكورسات
+			const coursesData = {
+				web: {
+					title: "معسكر تطوير الويب (Full Stack)",
+					desc: "هذا الكورس الشامل سيأخذك في رحلة من المبتدئ إلى المحترف في عالم برمجة المواقع باستخدام HTML, CSS, JS.",
+					schedule: [
+						{
+							week: "الأسبوع 1",
+							topic: "أساسيات HTML & CSS",
+							project: "تصميم صفحة شخصية",
+						},
+						{
+							week: "الأسبوع 2",
+							topic: "JavaScript & DOM",
+							project: "قائمة مهام تفاعلية",
+						},
+						{
+							week: "الأسبوع 3",
+							topic: "Backend Basics",
+							project: "لوحة تحكم بسيطة",
+						},
+						{
+							week: "الأسبوع 4",
+							topic: "المشروع النهائي",
+							project: "موقع متكامل",
+						},
+					],
+				},
+				data: {
+					title: "مسار علم البيانات (Data Science)",
+					desc: "تعلم كيفية تحليل البيانات الضخمة واستخراج النتائج باستخدام Python ومكتبات Pandas و NumPy.",
+					schedule: [
+						{
+							week: "الأسبوع 1",
+							topic: "مقدمة في Python",
+							project: "سكريبت معالجة نصوص",
+						},
+						{
+							week: "الأسبوع 2",
+							topic: "NumPy & Pandas",
+							project: "تحليل بيانات مبيعات",
+						},
+						{
+							week: "الأسبوع 3",
+							topic: "Data Visualization",
+							project: "لوحة رسوم بيانية",
+						},
+						{
+							week: "الأسبوع 4",
+							topic: "Machine Learning",
+							project: "توقع أسعار العقارات",
+						},
+					],
+				},
+				graphic: {
+					title: "دبلومة التصميم الجرافيكي",
+					desc: "اكتشف إبداعك وتعلم أدوات التصميم العالمية Adobe Photoshop و Illustrator من الصفر.",
+					schedule: [
+						{
+							week: "الأسبوع 1",
+							topic: "أساسيات Photoshop",
+							project: "تصميم دمج خيالي",
+						},
+						{
+							week: "الأسبوع 2",
+							topic: "تعديل الصور",
+							project: "ريتاتش وتصحيح ألوان",
+						},
+						{
+							week: "الأسبوع 3",
+							topic: "Illustrator & Logo",
+							project: "تصميم شعار وهوية",
+						},
+						{
+							week: "الأسبوع 4",
+							topic: "Social Media Designs",
+							project: "حملة إعلانية كاملة",
+						},
+					],
+				},
+			};
+
+			// 1. نجيب اسم الكورس من الرابط
+			const urlParams = new URLSearchParams(window.location.search);
+			const courseId = urlParams.get("course");
+
+			// 2. نحدث الصفحة بالبيانات المناسبة
+			if (courseId && coursesData[courseId]) {
+				const data = coursesData[courseId];
+
+				// تغيير العنوان والوصف
+				document.getElementById("course-title").innerText = data.title;
+				document.getElementById("course-desc").innerText = data.desc;
+
+				// بناء الجدول ديناميكياً
+				const tableBody = document.getElementById("course-table-body");
+				let rows = "";
+				data.schedule.forEach((item) => {
+					rows += `
+                    <tr>
+                        <td>${item.week}</td>
+                        <td>${item.topic}</td>
+                        <td>${item.project}</td>
+                    </tr>
+                `;
+				});
+				tableBody.innerHTML = rows;
+			} else {
+				// لو الرابط مفيش فيه كورس، نعرض الويب كافتراضي
+				document.getElementById("course-title").innerText =
+					"خطأ: لم يتم اختيار كورس";
+				document.getElementById("course-desc").innerText =
+					"يرجى العودة لصفحة الكورسات واختيار كورس.";
+			}
+		</script>
+	</body>
+</html>

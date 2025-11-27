@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Web Team | الكورسات</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- رابط مكتبة الأيقونات (FontAwesome) -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<nav>
+			<div class="logo">Web <span class="highlight">Team</span></div>
+			<ul>
+				<li><a href="index.html">الرئيسية</a></li>
+				<li><a href="courses.html" class="active">الكورسات</a></li>
+				<li><a href="about.html">من نحن</a></li>
+				<li><a href="contact.html">تواصل معنا</a></li>
+			</ul>
+		</nav>
+
+		<section class="container">
+			<h2 class="section-title">أحدث الكورسات</h2>
+			<div class="courses-grid">
+				<!-- كورس 1: الويب -->
+				<div class="card">
+					<!-- هنا الأيقونة بدلاً من الصورة الفاضية -->
+					<div class="card-icon img-1">
+						<i class="fa-solid fa-code"></i>
+					</div>
+					<div class="card-body">
+						<h3>تطوير الويب الكامل</h3>
+						<p>احترف HTML, CSS, JavaScript من الصفر.</p>
+						<div class="card-meta">
+							<span> 4 أسابيع</span><span>⭐ 4.9</span>
+						</div>
+						<a href="course-details.html?course=web" class="btn-small"
+							>التفاصيل</a
+						>
+					</div>
+				</div>
+
+				<!-- كورس 2: البيانات -->
+				<div class="card">
+					<div class="card-icon img-2">
+						<i class="fa-solid fa-chart-pie"></i>
+					</div>
+					<div class="card-body">
+						<h3>تحليل البيانات (Data Science)</h3>
+						<p>تعلم بايثون وتحليل البيانات الضخمة.</p>
+						<div class="card-meta">
+							<span> 6 أسابيع</span><span>⭐ 4.8</span>
+						</div>
+						<a href="course-details.html?course=data" class="btn-small"
+							>التفاصيل</a
+						>
+					</div>
+				</div>
+
+				<!-- كورس 3: الجرافيك -->
+				<div class="card">
+					<div class="card-icon img-3">
+						<i class="fa-solid fa-pen-nib"></i>
+					</div>
+					<div class="card-body">
+						<h3>التصميم الجرافيكي</h3>
+						<p>أساسيات الفوتوشوب والإليستريتور.</p>
+						<div class="card-meta">
+							<span> 3 أسابيع</span><span>⭐ 4.7</span>
+						</div>
+						<a href="course-details.html?course=graphic" class="btn-small"
+							>التفاصيل</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
